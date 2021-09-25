@@ -23,7 +23,7 @@
         <beans:property name="suffix" value=".jsp"/>
     </beans:bean>
 
-    <!-- 정적파일(이미지, 동영상, js, css 등) 경로 설정. -->
+    <!-- 정적파일(이미지, 동영상, js, css 등) 경로 설정. location 은 webapp 내부에 있는 resources 폴더를 지정한다. -->
     <resources mapping="/**" location="/resources/"/>
 
 </beans:beans>
