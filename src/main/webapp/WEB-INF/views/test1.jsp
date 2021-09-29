@@ -8,6 +8,7 @@
   <img src="img/f.jpg"/>
 <div>
     <a href="/">HOME</a>
+    <a href="t1/sub1">sub 이동</a>
     <a href="t2">t2 이동.</a>
 </div>
 </body>
