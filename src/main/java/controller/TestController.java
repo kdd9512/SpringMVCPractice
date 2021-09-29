@@ -11,4 +11,9 @@ public class TestController {
     public String test1() {
         return "test1";
     }
+
+    @RequestMapping(value = "/t2", method = RequestMethod.GET)
+    public String test2() {
+        return "test2";
+    }
 }
