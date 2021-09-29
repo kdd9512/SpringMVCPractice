@@ -1,13 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>test1</title>
 </head>
 <body>
-    <h1>Hell, World!</h1>
-    <img src="img/e.jpg"/>
+  <h1>TEST1</h1>
+  <img src="img/f.jpg"/>
 <div>
-    <a href="t1">t1 으로 이동.</a>
+    <a href="/">HOME</a>
 </div>
 </body>
 </html>
