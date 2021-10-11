@@ -8,7 +8,6 @@
     <img src="img/e.jpg"/>
 <div>
     <a href="t1">t1 이동.</a>
-    <a href="t2">t2 이동.</a>
 </div>
 </body>
 </html>

@@ -4,4 +4,14 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+<!--
+    @RequestScope annotation XML
+    RootAppContext.java 에서 정의했던 Bean 을 Xml 에서는 root-context.xml 에서 정의한다.
+    bean class 의 위치와 scope 방식을 지정해준다.
+    SpringMVCJavaPractice 의 config.RootAppContext 파일과 함께 보면서 이해하면 알기 쉬움.
+ -->
+    <bean class="controller.RequestScopeBeanXml.beans.DataBean"
+          scope="request"/>
+    <bean class="controller.RequestScopeBeanXml.beans.DataBean2"
+          scope="request" id="reqBean2"/>
 </beans>

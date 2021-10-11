@@ -14,7 +14,9 @@
     <annotation-driven/>
 
     <!-- 스캔한 bean 들이 모여있는 패키지를 지정. -->
-    <context:component-scan base-package="controller"/>
+    <!-- 예제 폴더를 바꿔야 할 때 기존 폴더를 반드시 주석처리할 것 -->
+<!--    <context:component-scan base-package="controller.Setting"/>-->
+    <context:component-scan base-package="controller.RequestScopeBeanXml"/>
 
     <!-- Controller 의 메서드에서 반환하는 문자열 앞/뒤에 붙힐 경로정보를 세팅한다.
          이 작업으로 인해 모든 경로를 입력하는 불편함이 사라진다.-->
