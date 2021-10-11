@@ -11,5 +11,11 @@
 
 <h2>reqBean2.data3 : ${requestScope.reqBean2.data3}</h2>
 <h2>reqBean2.data4 : ${requestScope.reqBean2.data4}</h2>
+
+<h2>reqBean3.data5 : ${requestScope.reqBean3.data5}</h2>
+<h2>reqBean3.data6 : ${requestScope.reqBean3.data6}</h2>
+
+<h2>reqBean4.data7 : ${requestScope.reqBean4.data7}</h2>
+<h2>reqBean4.data8 : ${requestScope.reqBean4.data8}</h2>
 </body>
 </html>
