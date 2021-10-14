@@ -27,7 +27,7 @@ public class TestController {
     // JAVA 방식의 경우에는 요청이 없더라도 bean 주입을 시도하려 한다.
     // 하지만 xml 의 경우 scope 에서 요청이 있을 때만 주입하도록 request 로 설정을 해놓았기 때문에, 멋대로 주입하는
     // bean 은 전부 거부해 버리기 때문에 생기는 오류이다.
-    // 이 경우, 자동 주입을 나중으로 미뤄 서버가 가동해도 자동주입이 되지 않도록 막아버리면 오류가 해결될 것이다.
+    // 이 경우, 자동 주입을 나중으로 미뤄(@Lazy) 서버가 가동해도 자동주입이 되지 않도록 막아버리면 오류가 해결될 것이다.
     @Autowired @Lazy
     DataBean reqBean1;
 
@@ -85,7 +85,8 @@ public class TestController {
         // 그러므로 model 클래스를 이용하여 값을 저장해주어야 함.
         model.addAttribute("reqBean4", reqBean4);
 
-        // reqBean2는 XML 로 bean 을 "직접 설정"하고 byName 으로 주입받았으므로 request 영역에 자동으로 저장된다.
+        // reqBean2는 XML 로 bean 을 "직접 설정"하고 이름으로(byName) 주입받았으므로
+        // request 영역에 자동으로 저장된다.
         // 즉, Model 을 이용하지 않아도 알아서 값이 request 영역에 저장되어 넘어온다.
         //  model.addAttribute("reqBean2", reqBean2);
 

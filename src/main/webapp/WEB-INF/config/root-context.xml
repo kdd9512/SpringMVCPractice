@@ -10,8 +10,20 @@
     bean class 의 위치와 scope 방식을 지정해준다.
     SpringMVCJavaPractice 의 config.RootAppContext 파일과 함께 보면서 이해하면 알기 쉬움.
  -->
-    <bean class="controller.RequestScopeBeanXml.beans.DataBean"
-          scope="request"/>
-    <bean class="controller.RequestScopeBeanXml.beans.DataBean2"
-          scope="request" id="reqBean2"/>
+<!--    <bean class="controller.RequestScopeBeanXml.beans.DataBean"-->
+<!--          scope="request"/>-->
+<!--    <bean class="controller.RequestScopeBeanXml.beans.DataBean2"-->
+<!--          scope="request" id="reqBean2"/>-->
+
+
+
+<!-- SessionScopeBeanXml 예제를 위한 Bean 정의 -->
+    <bean class="controller.SessionScopeBeanXml.beans.DataBean1"
+          scope="session"/>
+
+<!-- 이 bean 은 이름을 설정하여 이름으로 주입받는다 -->
+    <bean class="controller.SessionScopeBeanXml.beans.DataBean2"
+    scope="session" id="sessBean2"/>
+
+
 </beans>
