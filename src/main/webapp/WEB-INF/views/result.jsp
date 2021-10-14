@@ -36,8 +36,8 @@
 <h2>sessBean1.data1 : ${requestScope.sessBean1.data1}</h2>
 <h2>sessBean1.data2 : ${requestScope.sessBean1.data2}</h2>
 
-<h2>sessBean2.data3 : ${requestScope.sessBean2.data3}</h2>
-<h2>sessBean2.data4 : ${requestScope.sessBean2.data4}</h2>
+<h2>sessBean2.data3 : ${sessionScope.sessBean2.data3}</h2>
+<h2>sessBean2.data4 : ${sessionScope.sessBean2.data4}</h2>
 
 <h2>sessBean3.data5 : ${requestScope.sessBean3.data5}</h2>
 <h2>sessBean3.data6 : ${requestScope.sessBean3.data6}</h2>
