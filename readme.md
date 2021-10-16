@@ -1,4 +1,4 @@
-#Spring MVC XML 연습.
+# Spring MVC XML 연습.
 
 * spring MVC 설정 및 기능을 학습.
 * XML 방식이 존재하는 경우, 본 프로젝트에 작성하여  
