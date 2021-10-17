@@ -66,6 +66,19 @@
 <h2>appBean2.data3 : ${applicationScope.appBean2.data3}</h2>
 <h2>appBean2.data4 : ${applicationScope.appBean2.data4}</h2>
 
+<%-- component 를 이용하여 bean 을 주입. --%>
+<h2>appBean3.data5 : ${requestScope.appBean3.data5}</h2>
+<h2>appBean3.data6 : ${requestScope.appBean3.data6}</h2>
+
+<%--
+    이름을 이용한 주입이지만, requestScope 때와 같이 XML 로 bean 을 "직접 설정"하고
+    이름으로(byName) 주입한 것이 아니므로, Model 로 데이터를 담고 requestScope 에서 찾아야 한다.
+--%>
+<h2>appBean4.data7 : ${requestScope.appBean4.data7}</h2>
+<h2>appBean4.data8 : ${requestScope.appBean4.data8}</h2>
+
+
+
 
 </body>
 </html>
