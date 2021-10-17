@@ -2,7 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd">
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 <!--
     @RequestScope annotation XML
@@ -18,12 +18,20 @@
 
 
 <!-- SessionScopeBeanXml 예제를 위한 Bean 정의 -->
-    <bean class="controller.SessionScopeBeanXml.beans.DataBean1"
-          scope="session"/>
+<!--    <bean class="controller.SessionScopeBeanXml.beans.DataBean1"-->
+<!--          scope="session"/>-->
 
 <!-- 이 bean 은 이름을 설정하여 이름으로 주입받는다 -->
-    <bean class="controller.SessionScopeBeanXml.beans.DataBean2"
-    scope="session" id="sessBean2"/>
+<!--    <bean class="controller.SessionScopeBeanXml.beans.DataBean2"-->
+<!--    scope="session" id="sessBean2"/>-->
 
+
+
+<!-- ApplicationScopeXml 예제 Bean 정의 -->
+    <bean class="controller.ApplicationScopeXml.beans.AppliScopeBean"
+          scope="application"/>
+    <!-- 이 bean 은 이름을 설정하여 이름으로 주입받는다 -->
+    <bean class="controller.ApplicationScopeXml.beans.AppliScopeBean2"
+          scope="application" id="appBean2"/>
 
 </beans>

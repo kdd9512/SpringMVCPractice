@@ -17,11 +17,12 @@
     <!-- 예제 폴더를 바꿔야 할 때 기존 폴더를 반드시 주석처리할 것 -->
 <!--    <context:component-scan base-package="controller.Setting"/>-->
 <!--    <context:component-scan base-package="controller.RequestScopeBeanXml"/>-->
-    <context:component-scan base-package="controller.SessionScopeBeanXml"/>
+    <context:component-scan base-package="controller.ApplicationScopeXml"/>
 
 <!-- Component 방식의 Bean 주입을 위해 패키지를 하나 더 지정한다. -->
 <!--    <context:component-scan base-package="controller.RequestScopeBeanXml.beans"/>-->
-    <context:component-scan base-package="controller.SessionScopeBeanXml.beans"/>
+<!--    <context:component-scan base-package="controller.SessionScopeBeanXml.beans"/>-->
+    <context:component-scan base-package="controller.ApplicationScopeXml.beans"/>
 
     <!-- Controller 의 메서드에서 반환하는 문자열 앞/뒤에 붙힐 경로정보를 세팅한다.
          이 작업으로 인해 모든 경로를 입력하는 불편함이 사라진다.-->
