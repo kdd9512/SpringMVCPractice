@@ -34,4 +34,29 @@
     <!-- 정적파일(이미지, 동영상, js, css 등) 경로 설정. location 은 webapp 내부에 있는 resources 폴더를 지정한다. -->
     <resources mapping="/**" location="/resources/"/>
 
+
+    <!-- MessageSource 등록. -->
+    <beans:bean
+            class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
+            id="messageSource">
+
+<!--    한 개 등록  :  <beans:property name="basename" value="/WEB-INF/properties/msgprop1"/>-->
+
+        <!--  등록할 properties 가 2개 이상  -->
+        <beans:property name="basenames">
+            <beans:list>
+                <beans:value>/WEB-INF/properties/msgprop1</beans:value>
+                <beans:value>/WEB-INF/properties/msgprop2</beans:value>
+            </beans:list>
+        </beans:property>
+    </beans:bean>
+
+
+<!-- MessageSource 를 사용하기 위한 Accessor 등록. -->
+    <beans:bean
+            id="messageSourceAccessor"
+            class="org.springframework.context.support.MessageSourceAccessor">
+        <beans:constructor-arg ref="messageSource"/>
+    </beans:bean>
+
 </beans:beans>
