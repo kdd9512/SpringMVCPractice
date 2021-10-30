@@ -13,16 +13,20 @@
     <!-- 스캔한 패키지 내부 클래스 중 Controller annotation 을 갖는 클래스들을 Controller 로 로딩하도록 한다. -->
     <annotation-driven/>
 
+
     <!-- 스캔한 bean 들이 모여있는 패키지를 지정. -->
     <!-- 예제 폴더를 바꿔야 할 때 기존 폴더를 반드시 주석처리할 것 -->
 <!--    <context:component-scan base-package="controller.Setting"/>-->
 <!--    <context:component-scan base-package="controller.RequestScopeBeanXml"/>-->
-    <context:component-scan base-package="controller.ApplicationScopeXml"/>
+<!--    <context:component-scan base-package="controller.ApplicationScopeXml"/>-->
+    <context:component-scan base-package="controller.InterceptorXml"/>
 
 <!-- Component 방식의 Bean 주입을 위해 패키지를 하나 더 지정한다. -->
 <!--    <context:component-scan base-package="controller.RequestScopeBeanXml.beans"/>-->
 <!--    <context:component-scan base-package="controller.SessionScopeBeanXml.beans"/>-->
-    <context:component-scan base-package="controller.ApplicationScopeXml.beans"/>
+<!--    <context:component-scan base-package="controller.ApplicationScopeXml.beans"/>-->
+
+
 
     <!-- Controller 의 메서드에서 반환하는 문자열 앞/뒤에 붙힐 경로정보를 세팅한다.
          이 작업으로 인해 모든 경로를 입력하는 불편함이 사라진다.-->
@@ -33,6 +37,7 @@
 
     <!-- 정적파일(이미지, 동영상, js, css 등) 경로 설정. location 은 webapp 내부에 있는 resources 폴더를 지정한다. -->
     <resources mapping="/**" location="/resources/"/>
+
 
 
     <!-- MessageSource 등록. -->
@@ -52,11 +57,41 @@
     </beans:bean>
 
 
+
 <!-- MessageSource 를 사용하기 위한 Accessor 등록. -->
     <beans:bean
             id="messageSourceAccessor"
             class="org.springframework.context.support.MessageSourceAccessor">
         <beans:constructor-arg ref="messageSource"/>
     </beans:bean>
+
+
+
+<!-- Interceptor 들을 bean 으로 등록. -->
+    <beans:bean class="interceptor.TestInterceptor1" id="inter1"/>
+    <beans:bean class="interceptor.TestInterceptor5" id="inter5"/>
+    <beans:bean class="interceptor.TestInterceptor6" id="inter6"/>
+
+<!-- path 에는 반드시 /주소 형태로 입력할 것. 안적으면 인식을 못한다. -->
+    <interceptors>
+        <interceptor>
+            <mapping path="/t1"/>
+            <beans:ref bean="inter1"/>
+        </interceptor>
+        <interceptor>
+            <mapping path="/t2"/>
+            <!-- 이하 interceptor 는 이 관심사 에만 반응한다 -->
+            <beans:bean class="interceptor.TestInterceptor2"/>
+        </interceptor>
+        <interceptor>
+            <mapping path="/t2"/>
+            <beans:ref bean="inter1"/>
+        </interceptor>
+        <interceptor>
+            <mapping path="/**"/>
+            <exclude-mapping path="/"/>
+            <beans:ref bean="inter6"/>
+        </interceptor>
+    </interceptors>
 
 </beans:beans>

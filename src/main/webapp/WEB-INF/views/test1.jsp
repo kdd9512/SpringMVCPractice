@@ -21,8 +21,8 @@
       이를 JSP 내에서 활용하려면 custom tag 가 필요한데, 이하의 taglib 을 추가한다.
       <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
   --%>
-  <h2>prop1.data1 : <spring:message code="prop1.data1"/></h2>
-  <h2>prop1.data2 : <spring:message code="prop1.data2"/></h2>
+<%--  <h2>prop1.data1 : <spring:message code="prop1.data1"/></h2>--%>
+<%--  <h2>prop1.data2 : <spring:message code="prop1.data2"/></h2>--%>
 
 </body>
 </html>
