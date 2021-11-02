@@ -11,12 +11,20 @@
 <%--    <a href="result">result 이동.</a>--%>
 <%--</div>--%>
 
-<br/>
-<a href="/t1">(Interceptor) t1</a><br/>
-<a href="/t2">(Interceptor) t2</a><br/>
 
-<a href="/sub1/t3">(Interceptor) sub1/t3</a><br/>
-<a href="/sub1/t4">(Interceptor) sub1/t4</a><br/>
+<%--InterceptorXml--%>
+<%--<br/>--%>
+<%--<a href="/t1">(Interceptor) t1</a><br/>--%>
+<%--<a href="/t2">(Interceptor) t2</a><br/>--%>
+
+<%--<a href="/sub1/t3">(Interceptor) sub1/t3</a><br/>--%>
+<%--<a href="/sub1/t4">(Interceptor) sub1/t4</a><br/>--%>
+
+
+<%-- MyBatisXml --%>
+<br/>
+<a href="input_data">(MyBatisJava) input_data </a><br/>
+<a href="read_data">(MyBatisJava) read_data </a><br/>
 
 </body>
 </html>

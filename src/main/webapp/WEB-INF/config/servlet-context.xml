@@ -3,12 +3,15 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xmlns:beans="http://www.springframework.org/schema/beans"
              xmlns:context="http://www.springframework.org/schema/context"
+             xmlns:util="http://www.springframework.org/schema/util"
              xsi:schemaLocation="http://www.springframework.org/schema/mvc
                                  http://www.springframework.org/schema/mvc/spring-mvc.xsd
                                  http://www.springframework.org/schema/beans
                                  http://www.springframework.org/schema/beans/spring-beans.xsd
                                  http://www.springframework.org/schema/context
-                                 http://www.springframework.org/schema/context/spring-context.xsd">
+                                 http://www.springframework.org/schema/context/spring-context.xsd
+                                 http://www.springframework.org/schema/util
+                                 https://www.springframework.org/schema/util/spring-util-3.0.xsd">
 
     <!-- 스캔한 패키지 내부 클래스 중 Controller annotation 을 갖는 클래스들을 Controller 로 로딩하도록 한다. -->
     <annotation-driven/>
@@ -19,7 +22,8 @@
 <!--    <context:component-scan base-package="controller.Setting"/>-->
 <!--    <context:component-scan base-package="controller.RequestScopeBeanXml"/>-->
 <!--    <context:component-scan base-package="controller.ApplicationScopeXml"/>-->
-    <context:component-scan base-package="controller.InterceptorXml"/>
+<!--    <context:component-scan base-package="controller.InterceptorXml"/>-->
+    <context:component-scan base-package="controller.MyBatisXml"/>
 
 <!-- Component 방식의 Bean 주입을 위해 패키지를 하나 더 지정한다. -->
 <!--    <context:component-scan base-package="controller.RequestScopeBeanXml.beans"/>-->
@@ -93,5 +97,43 @@
             <beans:ref bean="inter6"/>
         </interceptor>
     </interceptors>
+
+<!--  .properties 파일을 사용하기 위한 Bean 등록.  -->
+
+<!-- 기존 방식인 PropertyPlaceholderConfigurer 를 이용하는 방법. -->
+<!-- PropertyPlaceholderConfigurer 는 지원종료(deprecate) 되어 상위버전에서는 사용할 수 없다. -->
+
+<!--    <beans:bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
+<!--        <beans:property name="location">-->
+<!--            <beans:value>/WEB-INF/properties/database.properties</beans:value>-->
+<!--        </beans:property>-->
+<!--    </beans:bean>-->
+
+
+<!-- Spring 2.5 이후부터 사용 가능한 방식. -->
+    <context:property-placeholder location="/WEB-INF/properties/database.properties"/>
+
+
+<!-- DB 접속을 위한 정보를 입력. -->
+    <beans:bean class="org.apache.commons.dbcp2.BasicDataSource" id="basicDataSource">
+        <beans:property name="driverClassName" value="${db.drv}"/>
+        <beans:property name="url" value="${db.url}"/>
+        <beans:property name="username" value="${db.usr}"/>
+        <beans:property name="password" value="${db.pwd}"/>
+    </beans:bean>
+
+
+<!-- DB 접속정보와 mapper 파일 관리를 위한 Bean 등록. -->
+    <beans:bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSession">
+        <beans:property name="dataSource" ref="basicDataSource"/>
+        <beans:property name="mapperLocations" value="WEB-INF/mapper/*.xml"/>
+    </beans:bean>
+
+
+<!-- query 문 전달을 위한 Bean 등록. -->
+    <beans:bean class="org.mybatis.spring.SqlSessionTemplate" id="sessionTemplate">
+        <beans:constructor-arg index="0" ref="sqlSession"/>
+    </beans:bean>
+
 
 </beans:beans>

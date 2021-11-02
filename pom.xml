@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>SpringMVCPractice</groupId>
-    <artifactId>SpringMVCPractice</artifactId>
+    <groupId>SpringMVCJavaPractice</groupId>
+    <artifactId>SpringMVCJavaPractice</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>SpringMVCPractice</name>
     <packaging>war</packaging>
@@ -19,8 +19,27 @@
         <javax.servlet-version>4.0.1</javax.servlet-version>
         <javax.servlet.jsp-version>2.3.3</javax.servlet.jsp-version>
         <javax.servlet.jsp.jstl-version>1.2</javax.servlet.jsp.jstl-version>
+
         <org.springframework-version>5.3.9</org.springframework-version>
+        <javax.validation-version>2.0.1.Final</javax.validation-version>
+        <org.hibernate.validator-version>6.1.2.Final</org.hibernate.validator-version>
+
+        <org.mariadb.jdbc-version>2.7.1</org.mariadb.jdbc-version>
+        <org.apache.commons-version>2.8.0</org.apache.commons-version>
+        <org.mybatis-version>3.5.6</org.mybatis-version>
+
     </properties>
+
+    <!-- Repository 정보 (MariaDB) -->
+    <repositories>
+        <repository>
+            <id>CentralRepo</id>
+            <name>mariadb Main JDBC Repository</name>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
+    </repositories>
+
+
     <!-- 라이브러리 세팅 -->
     <dependencies>
 
@@ -61,6 +80,55 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <version>${org.springframework-version}</version>
+        </dependency>
+
+        <!-- validation-api -->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>${javax.validation-version}</version>
+        </dependency>
+
+        <!-- hibernate-validator -->
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${org.hibernate.validator-version}</version>
+        </dependency>
+
+        <!-- mariadb-java-client -->
+        <dependency>
+            <groupId>org.mariadb.jdbc</groupId>
+            <artifactId>mariadb-java-client</artifactId>
+            <version>${org.mariadb.jdbc-version}</version>
+        </dependency>
+
+        <!-- mybatis -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>${org.mybatis-version}</version>
+        </dependency>
+
+        <!-- mybatis-spring -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>2.0.6</version>
+        </dependency>
+
+        <!-- spring-jdbc -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${org.springframework-version}</version>
+        </dependency>
+
+        <!-- Apache Common DBCP -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-dbcp2</artifactId>
+            <version>${org.apache.commons-version}</version>
         </dependency>
 
     </dependencies>

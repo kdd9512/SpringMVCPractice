@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- <![CDATA[]]> 는 xml 문법으로, [] 안에 들어간 문자를 현재 이 화면에서 보이는 그대로 관리한다. -->
+<mapper namespace="test_db">
+    <insert id="insert_data" parameterType="controller.MyBatisXml.beans.myBatisBean">
+        <![CDATA[
+        insert into MVC_test (data1, data2, data3)
+        VALUES (#{data1},#{data2},#{data3})
+        ]]>
+    </insert>
+    <select id="select_data" resultType="controller.MyBatisXml.beans.myBatisBean">
+        <![CDATA[
+        select * from MVC_test
+        ]]>
+    </select>
+</mapper>
