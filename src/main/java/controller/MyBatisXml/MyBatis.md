@@ -55,14 +55,22 @@
 
 3. servlet_context.xml 내에 BasicDataSource 를 작성한다. 
    이 메서드는 접속 정보를 관리한다.  
-   **(중요) .properties 파일을 읽어올 수 있도록 ServletAppContext 클래스에 "@PropertySource" annotation 을 이용하여  
+   **(중요)  
+   .properties 파일을 읽어올 수 있도록 ServletAppContext 클래스에 "@PropertySource" annotation 을 이용하여  
    .properties 파일의 경로를 반드시 설정해준다.**   
 
 
       ex1) .properties 파일을 사용하기 위한 Bean 등록 예시.
-      <context:property-placeholder location="/WEB-INF/properties/database.properties"/>
+      1. <context:property-placeholder location="/WEB-INF/properties/database.properties"/>
 
-      
+      2. <beans:bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+            <beans:property name="location">
+                <beans:value>/WEB-INF/properties/database.properties</beans:value>
+            </beans:property>
+         </beans:bean>
+        ** 2번 방식은 지원종료(deprecate) 되어 상위버전에서는 사용할 수 없는 경우가 생길 수 있다.
+
+
       ex2) BasicDataSource 예시.
       <beans:bean class="org.apache.commons.dbcp2.BasicDataSource" id="basicDataSource">
           <beans:property name="driverClassName" value="${db.drv}"/>
